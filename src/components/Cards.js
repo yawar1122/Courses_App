@@ -1,10 +1,12 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Card from './Card';
 
 function Cards(props) {
 
     const courses = props.courses;
     let category = props.category;
+
+
     function getCourses(){
         if(category === "All"){
             let allCourses = [];
@@ -24,10 +26,10 @@ function Cards(props) {
     }
 
   return (
-    <div>
+    <div className='flex flex-wrap max-w-[1200px] pb-10 h-fit mx-auto gap-y-5 gap-x-4 justify-center'>
         {
             getCourses().map((course) => {
-                return <Card course={course}/>
+                return <Card  key={course.id} course={course}/>
             })
         }
     </div>
